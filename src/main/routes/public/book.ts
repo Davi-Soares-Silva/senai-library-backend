@@ -1,5 +1,5 @@
 import { adaptRoute } from "@/main/adapters/adapt-route";
-import { makeCreateBookController, makeListBooksController } from "@/main/factories/controllers";
+import { makeCreateBookController, makeListBooksController, makeUpdateBookController } from "@/main/factories/controllers";
 import { makeDeleteBookController } from "@/main/factories/controllers/make-delete-book-controller";
 import { Router } from "express";
 
@@ -10,4 +10,5 @@ export default (routes: Router) => {
 
   routes.route('/books/:id')
     .delete(adaptRoute(makeDeleteBookController()))
+    .put(adaptRoute(makeUpdateBookController()))
 }

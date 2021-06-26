@@ -1,14 +1,12 @@
 export type BookModel = {
-  bookId: number;
+  id: number;
   title: string;
   publishingCompany: string;
   cover: string;
-  authors: string[];
-  createdAt: string;
-  deletedAt: string;
+  authors: string[]
 }
 
 export type CreateBookModel = Omit<
   BookModel,
-  'bookId' | 'createdAt' | 'deletedAt'
+  'id' | 'createdAt' | 'deletedAt'
 >

@@ -1,7 +1,8 @@
 import { 
   CreateBookRepository,
   DeleteBookRepository,
-  ListBooksRepository
+  ListBooksRepository,
+  UpdateBookRepository
 } from "@/data/protocols/db";
 
 import {
@@ -14,14 +15,15 @@ import { library } from "../helpers/connection";
 export class BookRepository implements
   CreateBookRepository,
   ListBooksRepository,
-  DeleteBookRepository {
+  DeleteBookRepository,
+  UpdateBookRepository {
 
   async create(params: CreateBookRepository.Params): CreateBookRepository.Result {
     const [id] = await library('tb_book')
       .insert(formateCamelCaseKeysForSnakeCase(params));
 
     return {
-      bookId: id,
+      id,
       ...params,
     };
   }
@@ -37,6 +39,16 @@ export class BookRepository implements
   async delete(id: number): Promise<void> {
     await library('tb_book')
       .update('deleted_at', new Date())
+      .where('id', '=', id);
+  }
+
+  async update(params: UpdateBookRepository.Params): UpdateBookRepository.Result {
+    const { id, ...book } = params;
+
+    await library('tb_book')
+      .update({
+        ...formateCamelCaseKeysForSnakeCase({ ...book })
+      })
       .where('id', '=', id);
   }
 }
