@@ -1,9 +1,21 @@
-import { CreateBookRepository } from "@/data/protocols/db/create-book-repository";
-import { ListBooksRepository } from "@/data/protocols/db/list-books-repository";
-import { formateCamelCaseKeysForSnakeCase, formateSnakeCaseKeysForCamelCase } from "@/utils/object";
+import { 
+  CreateBookRepository,
+  DeleteBookRepository,
+  ListBooksRepository
+} from "@/data/protocols/db";
+
+import {
+  formateCamelCaseKeysForSnakeCase,
+  formateSnakeCaseKeysForCamelCase
+} from "@/utils/object";
+
 import { library } from "../helpers/connection";
 
-export class BookRepository implements CreateBookRepository, ListBooksRepository {
+export class BookRepository implements
+  CreateBookRepository,
+  ListBooksRepository,
+  DeleteBookRepository {
+
   async create(params: CreateBookRepository.Params): CreateBookRepository.Result {
     const [id] = await library('tb_book')
       .insert(formateCamelCaseKeysForSnakeCase(params));
@@ -20,5 +32,11 @@ export class BookRepository implements CreateBookRepository, ListBooksRepository
       .whereNull('deleted_at');
 
     return formateSnakeCaseKeysForCamelCase(books);
+  }
+
+  async delete(id: number): Promise<void> {
+    await library('tb_book')
+      .update('deleted_at', new Date())
+      .where('id', '=', id);
   }
 }
