@@ -19,7 +19,6 @@ export class CreateBookController implements Controller {
       return ok('Livro registrado com sucesso!', book);
 
     } catch (error) {
-      console.log(error);
       switch (error.message) {
         case 'BOOK_CREATION_ERROR':
           return unprocessableEntity(
