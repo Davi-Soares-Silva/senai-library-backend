@@ -16,7 +16,8 @@ export class BookRepository implements CreateBookRepository, ListBooksRepository
 
   async findAll(): ListBooksRepository.Result {
     const books = await library('tb_book')
-      .select('*');
+      .select('*')
+      .whereNull('deleted_at');
 
     return formateSnakeCaseKeysForCamelCase(books);
   }
