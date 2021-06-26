@@ -1,10 +1,9 @@
 import { adaptRoute } from "@/main/adapters/adapt-route";
-import { makeCreateBookController } from "@/main/factories/make-example-controller";
+import { makeCreateBookController, makeListBooksController } from "@/main/factories/controllers";
 import { Router } from "express";
 
 export default (routes: Router) => {
-  routes.post(
-    '/books',
-    adaptRoute(makeCreateBookController())
-  )
+  routes.route('/books')
+    .post(adaptRoute(makeCreateBookController()))
+    .get(adaptRoute(makeListBooksController()))
 }
