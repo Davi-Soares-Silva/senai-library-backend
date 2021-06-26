@@ -10,7 +10,7 @@ export class ListBooksController implements Controller {
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const books = await this.listBooks.findAll();
-      return ok('Jogos listados com sucesso!', books)
+      return ok('Livros listados com sucesso!', books)
     } catch (error) {
       switch(error.message) {
         default:
