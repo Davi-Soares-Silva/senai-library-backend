@@ -1,5 +1,5 @@
 {
-  "name": "api-template",
+  "name": "library",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -34,6 +34,7 @@
     "express": "^4.17.1",
     "knex": "^0.95.6",
     "mysql": "^2.18.1",
-    "mysql2": "^2.2.5"
+    "mysql2": "^2.2.5",
+    "yup": "^0.32.11"
   }
 }

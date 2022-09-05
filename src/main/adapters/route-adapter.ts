@@ -3,14 +3,14 @@ import { Request, Response } from 'express';
 import { Controller, HttpRequest } from '../../presentation/protocols';
 
 
-export function adaptRoute(controller: Controller) {
+export function routeAdapter(controller: Controller) {
   return async (req: Request, res: Response) => {
-    const httpRequest: HttpRequest = {
-      body: formateSnakeCaseKeysForCamelCase(req.body),
-      params: formateSnakeCaseKeysForCamelCase(req.params),
-      query: formateSnakeCaseKeysForCamelCase(req.query),
+    const httpRequest: HttpRequest = formateSnakeCaseKeysForCamelCase({
+      body: req.body,
+      params: req.params,
+      query: req.query,
       headers: req.headers,
-    };
+    });
 
     const httpResponse = await controller.handle(httpRequest);
 

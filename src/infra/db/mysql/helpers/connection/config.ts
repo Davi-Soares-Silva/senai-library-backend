@@ -7,7 +7,7 @@ const libraryConfig = {
     port: +DATABASE.DB_PORT,
     user: DATABASE.DB_USERNAME,
     password: DATABASE.DB_PASSWORD,
-    database: 'db_library',
+    database: 'Library',
     options: {
       encrypt: false,
       enableArithAbort: false,
