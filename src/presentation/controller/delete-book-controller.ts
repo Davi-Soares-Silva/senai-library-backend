@@ -1,4 +1,4 @@
-import { DeleteBook } from "@/domain/usecases/delete-book";
+import { DeleteBook } from "@/domain/usecases/book/delete-book";
 import { ok, serverError } from "@/utils/response";
 import { Controller, HttpRequest, HttpResponse } from "../protocols";
 
@@ -9,7 +9,7 @@ export class DeleteBookController implements Controller {
     try {
       const { id } = httpRequest.params;
 
-      await this.deleteBook.delete(id);
+      await this.deleteBook.delete(+id);
 
       return ok('Livro deletado com sucesso!', {});
     } catch(error) {

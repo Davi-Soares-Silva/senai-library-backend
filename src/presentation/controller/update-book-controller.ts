@@ -1,4 +1,4 @@
-import { UpdateBook } from "@/domain/usecases/update-book";
+import { UpdateBook } from "@/domain/usecases/book/update-book";
 import { ok, serverError } from "@/utils/response";
 import { Controller, HttpRequest, HttpResponse } from "../protocols";
 

@@ -11,6 +11,7 @@ export function routeAdapter(controller: Controller) {
       query: req.query,
       headers: req.headers,
       files: req.files,
+      user: req.user,
     });
 
     const httpResponse = await controller.handle(httpRequest);

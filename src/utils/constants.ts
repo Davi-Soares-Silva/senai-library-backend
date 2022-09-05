@@ -18,4 +18,5 @@ export const DATABASE = {
 
 export const SECRET = {
   FILENAME_HASH_SECRET: process.env.FILENAME_HASH_SECRET || '',
+  JWT_SECRET: process.env.JWT_SECRET || '',
 }

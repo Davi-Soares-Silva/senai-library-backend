@@ -1,4 +1,4 @@
-import { BookModel } from "../models";
+import { BookModel } from "../../models";
 
 export interface UpdateBook {
   update: (params: UpdateBook.Params) => UpdateBook.Result;

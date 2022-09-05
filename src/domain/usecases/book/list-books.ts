@@ -1,4 +1,4 @@
-import { BookModel } from "../models";
+import { BookModel } from "../../models";
 
 export interface ListBooks {
   findAll: () => ListBooks.Result;

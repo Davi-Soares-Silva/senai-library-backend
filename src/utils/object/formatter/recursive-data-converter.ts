@@ -4,11 +4,19 @@ export const recursiveDataConvertFilterLayer = (
 ) => {
   if (Array.isArray(data))
     return data.map((item) => {
+      if (item instanceof Date) {
+        return item;
+      }
+
       if (typeof item === 'object')
         return recursiveDataConvertApplyLayer(item, formatter);
 
       return item;
     });
+
+  if (data instanceof Date) {
+    return data;
+  }
 
   if (typeof data === 'object')
     return recursiveDataConvertApplyLayer(data, formatter);
@@ -31,6 +39,10 @@ const recursiveDataConvertApplyLayer = (
     if (Array.isArray(value)) {
       const newValue = recursiveDataConvertFilterLayer(value, formatter);
       return { ...accumulator, [key]: newValue };
+    }
+
+    if (object instanceof Date) {
+      return { ...accumulator, [key]: value };
     }
 
     if (typeof value === 'object') {

@@ -1,5 +1,5 @@
-import { CreateBook } from "@/domain/usecases/create-book";
-import { CreateBookRepository } from '../protocols/db/create-book-repository';
+import { CreateBook } from "@/domain/usecases/book/create-book";
+import { CreateBookRepository } from '../../protocols/db/book/create-book-repository';
 
 export class DbCreateBook implements CreateBook {
   constructor(

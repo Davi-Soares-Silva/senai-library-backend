@@ -1,4 +1,4 @@
-import { DbCreateBook } from "@/data/usecases/db-create-book";
+import { DbCreateBook } from "@/data/usecases/book/db-create-book";
 import { BookRepository } from "@/infra/db/mysql/book/book-repository";
 import { CreateBookController } from "@/presentation/controller/create-book-controller"
 

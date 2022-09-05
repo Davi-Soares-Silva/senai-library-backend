@@ -1,5 +1,5 @@
-import { ListBooks } from "@/domain/usecases/list-books";
-import { ListBooksRepository } from "../protocols/db/list-books-repository";
+import { ListBooks } from "@/domain/usecases/book/list-books";
+import { ListBooksRepository } from "../../protocols/db/book/list-books-repository";
 
 export class DbListBooks implements ListBooks {
   constructor (

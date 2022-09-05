@@ -3,7 +3,7 @@ import {
   DeleteBookRepository,
   ListBooksRepository,
   UpdateBookRepository
-} from "@/data/protocols/db";
+} from "@/data/protocols/db/book";
 
 import {
   formateCamelCaseKeysForSnakeCase,

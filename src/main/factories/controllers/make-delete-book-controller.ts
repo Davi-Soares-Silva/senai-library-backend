@@ -1,4 +1,4 @@
-import { DbDeleteBook } from "@/data/usecases/db-delete-book";
+import { DbDeleteBook } from "@/data/usecases/book/db-delete-book";
 import { BookRepository } from "@/infra/db/mysql/book/book-repository";
 import { DeleteBookController } from "@/presentation/controller/delete-book-controller"
 

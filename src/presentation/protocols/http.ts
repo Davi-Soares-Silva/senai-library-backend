@@ -1,8 +1,6 @@
-export interface HttpRequest {
-  body?: any;
-  params?: any;
-  query?: any;
-  headers?: any;
+import { Request } from "express";
+
+export interface HttpRequest extends Request {
   files?: any;
 }
 

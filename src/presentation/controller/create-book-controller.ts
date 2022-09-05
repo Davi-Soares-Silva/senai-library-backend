@@ -1,4 +1,4 @@
-import { CreateBook } from "@/domain/usecases/create-book";
+import { CreateBook } from "@/domain/usecases/book/create-book";
 import { ok, serverError, unprocessableEntity } from "@/utils/response";
 import { makeError } from '@/utils';
 import { Controller, HttpRequest, HttpResponse } from "../protocols";

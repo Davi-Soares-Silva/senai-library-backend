@@ -1,5 +1,5 @@
-import { UpdateBook } from "@/domain/usecases/update-book";
-import { UpdateBookRepository } from "../protocols/db";
+import { UpdateBook } from "@/domain/usecases/book/update-book";
+import { UpdateBookRepository } from "../../protocols/db/book";
 
 export class DbUpdateBook implements UpdateBook {
   constructor(private readonly updateBook: UpdateBookRepository) {}

@@ -1,4 +1,4 @@
-import { CreateBookModel, BookModel } from '../models'
+import { CreateBookModel, BookModel } from '../../models'
 
 export interface CreateBook {
   create: (params: CreateBook.Params) => CreateBook.Result;

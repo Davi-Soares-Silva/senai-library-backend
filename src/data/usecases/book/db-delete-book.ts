@@ -1,5 +1,5 @@
-import { DeleteBook } from "@/domain/usecases/delete-book";
-import { DeleteBookRepository } from "../protocols/db/delete-book-repository";
+import { DeleteBook } from "@/domain/usecases/book/delete-book";
+import { DeleteBookRepository } from "../../protocols/db/book/delete-book-repository";
 
 export class DbDeleteBook implements DeleteBook {
   constructor (private readonly deleteBook: DeleteBookRepository) {}

@@ -1,4 +1,4 @@
-import { ListBooks } from "@/domain/usecases/list-books";
+import { ListBooks } from "@/domain/usecases/book/list-books";
 import { ok, serverError } from "@/utils/response";
 import { Controller, HttpRequest, HttpResponse } from "../protocols";
 
