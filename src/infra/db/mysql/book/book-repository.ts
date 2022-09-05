@@ -30,8 +30,15 @@ export class BookRepository implements
 
   async findAll(): ListBooksRepository.Result {
     const books = await library('tb_book')
-      .select('*')
-      .whereNull('deleted_at');
+      .select(
+        'book_id',
+        'title',
+        'little_image',
+        'image',
+        'details'
+      )
+      .whereNull('deleted_at')
+      .orderBy('book_id', 'desc');
 
     return formateSnakeCaseKeysForCamelCase(books);
   }
@@ -39,7 +46,7 @@ export class BookRepository implements
   async delete(id: number): Promise<void> {
     await library('tb_book')
       .update('deleted_at', new Date())
-      .where('id', '=', id);
+      .where('book_id', '=', id);
   }
 
   async update(params: UpdateBookRepository.Params): UpdateBookRepository.Result {
@@ -49,6 +56,6 @@ export class BookRepository implements
       .update({
         ...formateCamelCaseKeysForSnakeCase({ ...book })
       })
-      .where('id', '=', id);
+      .where('book_id', '=', id);
   }
 }

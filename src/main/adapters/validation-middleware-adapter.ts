@@ -5,6 +5,7 @@ import { badRequest } from '@/utils';
 
 export function validationMiddlewareAdapter(schema: YupSchema) {
   return async (req: Request, res: Response, next: NextFunction) => {
+
     const httpRequest = {
       ...req.body,
       ...req.params,

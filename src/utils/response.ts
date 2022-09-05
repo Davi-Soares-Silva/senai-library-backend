@@ -21,6 +21,7 @@ export const created = (message: string, payload: object) => {
 };
 
 export const serverError = (error: any, message?: string) => {
+  console.log(error);
   return {
     statusCode: 500,
     body: {

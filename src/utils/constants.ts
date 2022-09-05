@@ -15,3 +15,7 @@ export const DATABASE = {
   DB_INSTANCE_NAME: process.env.DB_INSTANCE_NAME || '',
   DB_PORT: process.env.DB_PORT || '',
 };
+
+export const SECRET = {
+  FILENAME_HASH_SECRET: process.env.FILENAME_HASH_SECRET || '',
+}

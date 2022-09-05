@@ -10,6 +10,7 @@ export function routeAdapter(controller: Controller) {
       params: req.params,
       query: req.query,
       headers: req.headers,
+      files: req.files,
     });
 
     const httpResponse = await controller.handle(httpRequest);

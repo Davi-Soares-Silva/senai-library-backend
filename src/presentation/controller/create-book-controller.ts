@@ -2,18 +2,20 @@ import { CreateBook } from "@/domain/usecases/create-book";
 import { ok, serverError, unprocessableEntity } from "@/utils/response";
 import { makeError } from '@/utils';
 import { Controller, HttpRequest, HttpResponse } from "../protocols";
+import { getFileNamesFromRequest } from "@/utils/files";
 
 export class CreateBookController implements Controller {
   constructor(private readonly createBook: CreateBook) { }
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
+      const images = getFileNamesFromRequest(httpRequest.files);
 
-      const { authors, ...bookWithoutAuthors } = httpRequest.body
+
 
       const book = await this.createBook.create({
-        ...bookWithoutAuthors,
-        authors: authors.join(','),
+        ...httpRequest.body,
+        ...images
       });
 
       return ok('Livro registrado com sucesso!', book);

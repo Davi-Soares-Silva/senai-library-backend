@@ -7,6 +7,8 @@ export class DbCreateBook implements CreateBook {
   ) { }
 
   async create(params: CreateBook.Params): CreateBook.Result {
+    console.log(params);
+
     const book = await this.createBook.create(params);
 
     if(!book) throw new Error('BOOK_CREATION_ERROR');
